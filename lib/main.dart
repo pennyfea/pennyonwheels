@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latlng/latlng.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +25,12 @@ class MapApp extends StatefulWidget {
 }
 
 class _MapAppState extends State<MapApp> {
+  // Saint Kitts and Nevis Lat Long Coordinates Info
+  double longitude = 17.363747;
+  double latitude = -62.754593;
+  LatLng point = LatLng(49.5, -0.09);
+  var location = [];
+
   @override
   Widget build(BuildContext context) {
     return Container(
