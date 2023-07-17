@@ -11,33 +11,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  #Search flutter_map in Dart Packages
-  flutter_map: any
-  #Search geocoder in Dart Packages
-  geocoder: ^0.2.1
-  #Search tuple in Dart Packages
-  tuple: ^1.0.2
-  #Search latlong in Dart Packages
-  latlong: ^0.6.1
-  #Search positioned_tap_detector_2 in Dart Packages
-  positioned_tap_detector_2: ^1.0.0
-  #Search transparent_image in Dart Packages
-  transparent_image: ^1.0.0
-  #Search async in Dart Packages
-  async: ^2.1.0
-  #Search flutter_image in Dart Packages
-  flutter_image: ^3.0.0
-  #Search vector_math in Dart Packages
-  vector_math: ^2.0.0
-  #Search proj4dart in Dart Packages
-  proj4dart: ^1.0.4
-  #Search meta in Dart Packages
-  meta: ^1.1.0
-  #Search collection in Dart Packages
-  collection: ^1.14.0
-
+  flutter_map: ^5.0.0
+  latlong2: ^0.9.0
   english_words: ^4.0.0
   provider: ^6.0.0
+  url_launcher: ^6.1.12
+  location: ^5.0.0
 
 dev_dependencies:
   flutter_test:
