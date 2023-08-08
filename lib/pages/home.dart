@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:location/location.dart';
+import 'package:penny_on_wheels_app/widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -31,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Penny On Wheels')),
+      drawer: buildDrawer(context, HomePage.route),
       body: Padding (
         padding: const EdgeInsets.all(8),
         child: Column(
