@@ -20,8 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Penny On Wheels',
-      home: HomePage(),
+      initialRoute: HomePage.route,
       routes: <String, WidgetBuilder>{
+        HomePage.route: (context) => const HomePage(),
         PaymentPage.route:(context) => const PaymentPage(),
         RideHistoryPage.route:(context) => RideHistoryPage(),
         HowToRidePage.route:(context) => HowToRidePage(),
