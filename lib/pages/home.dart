@@ -33,49 +33,62 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Penny On Wheels')),
       drawer: buildDrawer(context, HomePage.route),
-      body: Padding (
+      body: Padding(
         padding: const EdgeInsets.all(8),
-        child: Column(
+        child: Stack(
           children: [
-            Flexible(
-              child: FlutterMap(
-                options: MapOptions(
-                  center: LatLng(latitude, longitude),
-                  zoom: 5,
+            FlutterMap(
+              options: MapOptions(
+                center: LatLng(latitude, longitude),
+                zoom: 5,
+              ),
+              children: [
+                TileLayer(
+                  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  userAgentPackageName: 'dev.fleaflet.flutter_map.example',
                 ),
-                nonRotatedChildren: [
-                  RichAttributionWidget(
-                    attributions: [
-                      TextSourceAttribution(
-                        'OpenStreetMap contributors',
-                        onTap: () => launchUrl(
-                          Uri.parse('https://openstreetmap.org/copyright'
-                          ),
-                        ),
+                MarkerLayer(
+                  markers: [
+                    Marker(
+                      point: LatLng(latitude, longitude),
+                      width: 40,
+                      height: 40,
+                      builder: (context) => FlutterLogo(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    FilledButton(
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          const Icon(Icons.group), // Add the appropriate icon
+                          const SizedBox(width: 5),
+                          const Text('Group Ride'),
+                        ],
                       ),
-                      const TextSourceAttribution(
-                        'This attribution is the same throughout this app, except where otherwise specified',
-                        prependCopyright: false,
+                    ),
+                    const SizedBox(width: 10),
+                    FilledButton(
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          const Icon(Icons.qr_code), // Add the appropriate icon
+                          const SizedBox(width: 5),
+                          const Text('Scan'),
+                        ],
                       ),
-                    ],
-                  ),
-                ],
-                children: [
-                  TileLayer(
-                    urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                      userAgentPackageName: 'dev.fleaflet.flutter_map.example',
-                  ),
-                  MarkerLayer(
-                    markers: [
-                      Marker(
-                        point: LatLng(latitude, longitude),
-                        width: 40,
-                        height: 40,
-                        builder: (context) => FlutterLogo(),
-                      ),
-                    ],
-                  )
-                ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
