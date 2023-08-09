@@ -34,37 +34,44 @@ Drawer buildDrawer(BuildContext context, String currentRoute) {
   return Drawer(
     child: ListView(
       children: <Widget>[
-        DrawerHeader(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            // children: [
-            //   Image.asset(
-            //     'assets/CompanyIcon.png',
-            //     height: 48,
-            //   ),
-            // ],
-          ),
+          SizedBox(
+            height: 64.0,
+            child: DrawerHeader(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Penny On Wheels',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0
+                      ),
+                  ),
+                ],
+              ),
+            ),
         ),
         _buildMenuItem(
           context,
           const Text('PAYMENT'),
           PaymentPage.route,
           currentRoute,
-          // icon: const Icon(Icons.home),
+          icon: const Icon(Icons.wallet)
         ),
         _buildMenuItem(
           context,
           const Text('RIDE HISTORY'),
           RideHistoryPage.route,
           currentRoute,
-          // icon: const Icon(Icons.home),
+          icon: const Icon(Icons.history),
         ),
         _buildMenuItem(
           context,
           const Text('HOW TO RIDE'),
           HowToRidePage.route,
           currentRoute,
-          // icon: const Icon(Icons.home),
+          icon: const Icon(Icons.electric_scooter),
         ),
         // _buildMenuItem(
         //   context,
@@ -85,7 +92,7 @@ Drawer buildDrawer(BuildContext context, String currentRoute) {
           const Text('SETTINGS'),
           SettingsPage.route,
           currentRoute,
-          // icon: const Icon(Icons.home),
+          icon: const Icon(Icons.settings),
         ),
       ],
     ),
