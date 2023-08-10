@@ -4,6 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:location/location.dart';
 import 'package:penny_on_wheels_app/widgets/drawer.dart';
+import 'package:penny_on_wheels_app/pages/scanner.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -70,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {},
                       child: Row(
                         children: [
-                          const Icon(Icons.group), // Add the appropriate icon
+                          const Icon(Icons.group),
                           const SizedBox(width: 5),
                           const Text('Group Ride'),
                         ],
@@ -78,10 +79,15 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(width: 10),
                     FilledButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ScannerPage()),
+                        );
+                      },
                       child: Row(
                         children: [
-                          const Icon(Icons.qr_code), // Add the appropriate icon
+                          const Icon(Icons.qr_code),
                           const SizedBox(width: 5),
                           const Text('Scan'),
                         ],
